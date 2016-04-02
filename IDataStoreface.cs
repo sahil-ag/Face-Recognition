@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hack_in_the_north_hand_mouse
 {
-    interface IDataStore
+    interface IDataStoreface
     {
         String SaveFace(String username, Byte[] faceBlob);
         List<face> CallFaces(String username);

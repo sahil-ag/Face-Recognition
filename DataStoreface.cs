@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace Hack_in_the_north_hand_mouse
 {
-    class DataStore
+    class DataStoreface
     {
         private SQLiteConnection _sqLiteConnection;
 
 
-        public DataStore(String databasePath = "face.sqlite")
+        public DataStoreface(String databasePath = "face.sqlite")
         {
             _sqLiteConnection = new SQLiteConnection(String.Format("Data Source={0};Version=3;", databasePath));
 

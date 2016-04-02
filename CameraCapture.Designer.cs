@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnBrowse = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExtractedFaces)).BeginInit();
             this.SuspendLayout();
@@ -127,11 +129,26 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnBrowse
+            // 
+            this.btnBrowse.Location = new System.Drawing.Point(18, 400);
+            this.btnBrowse.Name = "btnBrowse";
+            this.btnBrowse.Size = new System.Drawing.Size(104, 27);
+            this.btnBrowse.TabIndex = 10;
+            this.btnBrowse.Text = "Browse Image";
+            this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // CameraCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 454);
+            this.Controls.Add(this.btnBrowse);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.label2);
@@ -143,7 +160,6 @@
             this.Controls.Add(this.btnStart);
             this.Name = "CameraCapture";
             this.Text = "Camera Output";
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExtractedFaces)).EndInit();
             this.ResumeLayout(false);
@@ -162,6 +178,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBrowse;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
 

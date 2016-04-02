@@ -20,7 +20,7 @@ namespace Hack_in_the_north_hand_mouse
     public partial class Recogniser : Form
     {
         private FaceRecognizer _faceRecognizer;
-        private DataStore _dataStore;
+        private DataStoreface _dataStore;
         private bool isTrained;
 
         private bool captureInProgress;
@@ -29,7 +29,7 @@ namespace Hack_in_the_north_hand_mouse
         CascadeClassifier haarCascade;
         public Recogniser()
         {
-            _dataStore = new DataStore();
+            _dataStore = new DataStoreface();
             _faceRecognizer = new EigenFaceRecognizer(80);
             isTrained = false;
             captureInProgress = false;
@@ -68,7 +68,7 @@ namespace Hack_in_the_north_hand_mouse
         {
             if (isTrained == false)
             {
-                MessageBox.Show("Train Recogniser First!");
+                TrainRecognizer();
             }
             else
             {
@@ -147,9 +147,16 @@ namespace Hack_in_the_north_hand_mouse
             showNames.Text = String.Join(Environment.NewLine, namesDetected);
         }
 
-        private void btnTrain_Click(object sender, EventArgs e)
+        private void btnBrowseImg_Click(object sender, EventArgs e)
         {
-            isTrained = TrainRecognizer();
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Image InputImg = Image.FromFile(openFileDialog1.FileName);
+                ImageFrame = new Image<Bgr, byte>(new Bitmap(InputImg));
+                CamImageBox.Image = ImageFrame;
+
+                DetectFace();
+            }
         }
     }
 }

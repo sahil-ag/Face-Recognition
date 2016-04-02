@@ -27,25 +27,22 @@ namespace Hack_in_the_north_hand_mouse
         int faceNo;
         public CameraCapture()
         {
-            InitializeComponent();
+            InitializeComponent(); /* Initialise all the components */
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ReleaseData()
+        private void ReleaseData() /* Release data when task is over */
         {
             if( capture != null)
             {
                 capture.Dispose();
             }
         }
-        private void btnStart_Click(object sender, EventArgs e)
+
+        /* start button click event */
+        private void btnStart_Click(object sender, EventArgs e) 
         {
             #region if capture is not created, create it now
-            if( capture == null)
+            if( capture == null) 
             {
                 try
                 {
@@ -57,14 +54,15 @@ namespace Hack_in_the_north_hand_mouse
             }
             #endregion
 
-            if( capture != null)
+            if( capture != null) /* If capture is created */
             {
-                if( captureInProgress)
+                if( captureInProgress) /* If true */
                 {
                     btnStart.Text = "Start!";
                     Application.Idle -= ProcessFrame;
                     DetectFace();
-                } else
+                }
+                else
                 {
                     btnStart.Text = "Stop";
                     Application.Idle += ProcessFrame;
@@ -81,19 +79,22 @@ namespace Hack_in_the_north_hand_mouse
             ImageFrame = temp.ToImage<Bgr, Byte>();
             CamImageBox.Image = ImageFrame;
             
-            Image<Gray, byte> grayframe = ImageFrame.Convert<Gray, byte>();
-            if (haarCascade == null)
+            Image<Gray, byte> grayframe = ImageFrame.Convert<Gray, byte>(); /* Converting ImageFrame to grayframe */
+            if (haarCascade == null) 
             {
-                haarCascade = new CascadeClassifier(@"haarcascade_frontalface_default.xml");
+                haarCascade = new CascadeClassifier(@"haarcascade_frontalface_default.xml"); /* Using front facial recogniser */
             }
-            double scaleFactor = 1.1;
+            double scaleFactor = 1.1; /* 10% scaleFactor */
             int minNeighbors = 10;
+
             //detect faces from the gray-scale image and store into an array of type 'var',i.e 'MCvAvgComp[]'
             var faces = haarCascade.DetectMultiScale(grayframe, scaleFactor, minNeighbors);
+
+            /* If some faces are detected */
             if (faces.Length > 0)
             {
                 //MessageBox.Show("Total Faces Detected: " + faces.Length.ToString());
-                Bitmap BmpInput = grayframe.ToBitmap();
+                Bitmap BmpInput = grayframe.ToBitmap(); /* grayframe to Bitmap, easy pixel implementation */
                 Bitmap ExtractedFace;   //empty
                 Graphics FaceCanvas;
 
@@ -120,6 +121,7 @@ namespace Hack_in_the_north_hand_mouse
             }
             double scaleFactor = 1.1;
             int minNeighbors = 10;
+
             //detect faces from the gray-scale image and store into an array of type 'var',i.e 'MCvAvgComp[]'
             var faces = haarCascade.DetectMultiScale(grayframe, scaleFactor, minNeighbors);
             if (faces.Length > 0)
@@ -178,7 +180,7 @@ namespace Hack_in_the_north_hand_mouse
         }
             
 
-        private DataStore _dataStore = new DataStore();
+        private DataStoreface _dataStore = new DataStoreface();
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -196,6 +198,18 @@ namespace Hack_in_the_north_hand_mouse
         {
             Recogniser fcrec = new Recogniser();
             fcrec.Show();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Image InputImg = Image.FromFile(openFileDialog1.FileName);
+                ImageFrame = new Image<Bgr, byte>(new Bitmap(InputImg));
+                CamImageBox.Image = ImageFrame;
+
+                DetectFace();
+            }
         }
     }
 

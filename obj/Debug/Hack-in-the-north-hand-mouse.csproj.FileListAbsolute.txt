@@ -21,3 +21,5 @@ C:\Users\sahil-pc\Documents\Visual Studio 2015\Projects\Hack-in-the-north-hand-m
 C:\Users\sahil-pc\Documents\Visual Studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\sahil-pc\Documents\Visual Studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\bin\Debug\System.Data.SQLite.xml
 C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.Recogniser.resources
+C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.DashBoard.resources
+C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.LoginForm.resources

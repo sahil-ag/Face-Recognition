@@ -32,9 +32,8 @@
             this.CamImageBox = new Emgu.CV.UI.ImageBox();
             this.btnStart = new System.Windows.Forms.Button();
             this.btnBrowseImg = new System.Windows.Forms.Button();
-            this.btnBrowseVid = new System.Windows.Forms.Button();
             this.showNames = new System.Windows.Forms.Label();
-            this.btnTrain = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,15 +63,7 @@
             this.btnBrowseImg.TabIndex = 5;
             this.btnBrowseImg.Text = "Browse exsisting Image";
             this.btnBrowseImg.UseVisualStyleBackColor = true;
-            // 
-            // btnBrowseVid
-            // 
-            this.btnBrowseVid.Location = new System.Drawing.Point(209, 456);
-            this.btnBrowseVid.Name = "btnBrowseVid";
-            this.btnBrowseVid.Size = new System.Drawing.Size(157, 23);
-            this.btnBrowseVid.TabIndex = 6;
-            this.btnBrowseVid.Text = "Browse exsisting Video";
-            this.btnBrowseVid.UseVisualStyleBackColor = true;
+            this.btnBrowseImg.Click += new System.EventHandler(this.btnBrowseImg_Click);
             // 
             // showNames
             // 
@@ -82,24 +73,16 @@
             this.showNames.Size = new System.Drawing.Size(0, 13);
             this.showNames.TabIndex = 7;
             // 
-            // btnTrain
+            // openFileDialog1
             // 
-            this.btnTrain.Location = new System.Drawing.Point(689, 84);
-            this.btnTrain.Name = "btnTrain";
-            this.btnTrain.Size = new System.Drawing.Size(128, 45);
-            this.btnTrain.TabIndex = 8;
-            this.btnTrain.Text = "Train";
-            this.btnTrain.UseVisualStyleBackColor = true;
-            this.btnTrain.Click += new System.EventHandler(this.btnTrain_Click);
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // Recogniser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(830, 491);
-            this.Controls.Add(this.btnTrain);
             this.Controls.Add(this.showNames);
-            this.Controls.Add(this.btnBrowseVid);
             this.Controls.Add(this.btnBrowseImg);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.CamImageBox);
@@ -116,8 +99,7 @@
         private Emgu.CV.UI.ImageBox CamImageBox;
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnBrowseImg;
-        private System.Windows.Forms.Button btnBrowseVid;
         private System.Windows.Forms.Label showNames;
-        private System.Windows.Forms.Button btnTrain;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }
