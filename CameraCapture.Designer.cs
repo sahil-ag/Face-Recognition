@@ -34,6 +34,10 @@
             this.pbExtractedFaces = new Emgu.CV.UI.ImageBox();
             this.btnPrev = new System.Windows.Forms.Button();
             this.btnNext = new System.Windows.Forms.Button();
+            this.txtUserName = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExtractedFaces)).BeginInit();
             this.SuspendLayout();
@@ -87,11 +91,51 @@
             this.btnNext.UseVisualStyleBackColor = true;
             this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
+            // txtUserName
+            // 
+            this.txtUserName.Location = new System.Drawing.Point(712, 93);
+            this.txtUserName.Name = "txtUserName";
+            this.txtUserName.Size = new System.Drawing.Size(133, 20);
+            this.txtUserName.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(709, 77);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "User Name";
+            // 
+            // btnSave
+            // 
+            this.btnSave.Location = new System.Drawing.Point(712, 119);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(133, 23);
+            this.btnSave.TabIndex = 8;
+            this.btnSave.Text = "Save";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(571, 277);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(197, 36);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Face Recogniser";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CameraCapture
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(875, 454);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtUserName);
             this.Controls.Add(this.btnNext);
             this.Controls.Add(this.btnPrev);
             this.Controls.Add(this.pbExtractedFaces);
@@ -103,6 +147,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CamImageBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbExtractedFaces)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -113,6 +158,10 @@
         private Emgu.CV.UI.ImageBox pbExtractedFaces;
         private System.Windows.Forms.Button btnPrev;
         private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.TextBox txtUserName;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Button button1;
     }
 }
 

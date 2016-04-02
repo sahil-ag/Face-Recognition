@@ -7,12 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sqlite;
+using System.Data.SQLite;
 
 using Emgu.CV;
 using Emgu.CV.Structure;
 using Emgu.Util;
-
+using System.IO;
 
 namespace Hack_in_the_north_hand_mouse
 {
@@ -79,7 +79,7 @@ namespace Hack_in_the_north_hand_mouse
             Mat temp = capture.QueryFrame();
             
             ImageFrame = temp.ToImage<Bgr, Byte>();
-            //CamImageBox.Image = ImageFrame;
+            CamImageBox.Image = ImageFrame;
             
             Image<Gray, byte> grayframe = ImageFrame.Convert<Gray, byte>();
             if (haarCascade == null)
@@ -175,6 +175,27 @@ namespace Hack_in_the_north_hand_mouse
                 faceNo--;
                 pbExtractedFaces.Image = new Image<Gray, Byte>(ExtFaces[faceNo]);
             }
+        }
+            
+
+        private DataStore _dataStore = new DataStore();
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            string username = txtUserName.Text;
+            
+            Bitmap temp = pbExtractedFaces.Image.Bitmap;
+            MemoryStream _memory = new MemoryStream();
+            temp.Save(_memory, System.Drawing.Imaging.ImageFormat.Jpeg);
+            byte[] sample = _memory.ToArray();
+
+            _dataStore.SaveFace(username, sample);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Recogniser fcrec = new Recogniser();
+            fcrec.Show();
         }
     }
 

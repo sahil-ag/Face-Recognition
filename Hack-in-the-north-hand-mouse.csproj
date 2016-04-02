@@ -87,8 +87,17 @@
     <Compile Include="CameraCapture.Designer.cs">
       <DependentUpon>CameraCapture.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataStore.cs" />
+    <Compile Include="face.cs" />
+    <Compile Include="IDataStore.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recogniser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recogniser.Designer.cs">
+      <DependentUpon>Recogniser.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CameraCapture.resx">
       <DependentUpon>CameraCapture.cs</DependentUpon>
     </EmbeddedResource>
@@ -101,6 +110,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Recogniser.resx">
+      <DependentUpon>Recogniser.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
