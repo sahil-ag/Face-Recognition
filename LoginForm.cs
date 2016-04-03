@@ -47,7 +47,7 @@ namespace Hack_in_the_north_hand_mouse
         private void pictureBox2_Click(object sender, EventArgs e)
         {
             sqLiteConnection = new SQLiteConnection(String.Format("Data Source={0};Version=3;", "face.sqlite"));
-            //dbclass.make_connection(sqLiteConnection, "guard.sqlite");
+            //dbclass.make_connection(sqLiteConnection, "guard.sqlite"); /* not working */
             try
             {
                 sqLiteConnection.Open();
@@ -64,16 +64,16 @@ namespace Hack_in_the_north_hand_mouse
 
                 var result = cmd.ExecuteReader();
 
-                if (result.HasRows)
+                if (result.HasRows) 
                 {
                     MessageBox.Show("Welcome " + username);
                     new DashBoard(result).Show();
                     this.Visible = false;
-
-                }
+                    //this.Close();  //cannot be used here
+                } 
                 else
                 {
-                    MessageBox.Show("Sorry, Please check your username or password");
+                    MessageBox.Show("Sorry, Please check your username or password!!! ");
                 }
             }
             catch (Exception ex)

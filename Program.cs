@@ -16,7 +16,7 @@ namespace Hack_in_the_north_hand_mouse
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Recogniser());
+            Application.Run(new LoginForm());
         }
     }
 }

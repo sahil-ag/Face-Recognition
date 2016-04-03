@@ -17,8 +17,11 @@ namespace Hack_in_the_north_hand_mouse
         public DashBoard(SQLiteDataReader ans)
         {
             user = ans;
-            user.Read();
-            Console.WriteLine(user.GetInt32(0));
+            //user.Read();
+           // Console.WriteLine(user.GetInt32(0));
+           
+           // var a = user.GetInt32(0);
+            //label6.Text = a.ToString();
             //label6.Text = "ID : " + user.GetInt32(0).ToString();
             //label7.Text = "Name : " + user.GetString(1);
             InitializeComponent();
@@ -26,32 +29,7 @@ namespace Hack_in_the_north_hand_mouse
 
         
 
-        
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            new Detector().Show();
-            this.Hide();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            new Recogniser().Show();
-            this.Hide();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            new Privilege().Show();
-            this.Hide();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            new guardControl().Show();
-            this.Hide();
-        }
-
+ 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -60,6 +38,24 @@ namespace Hack_in_the_north_hand_mouse
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnAddData_Click(object sender, EventArgs e)
+        {
+            new Detector().Show();
+            this.Hide();
+        }
+
+                private void btnRecognise_Click_1(object sender, EventArgs e)
+        {
+            new Recogniser().Show();
+            this.Hide();
+        }
+
+        private void btnSettings_Click_1(object sender, EventArgs e)
+        {
+            new setting(user).Show();
+            this.Hide();
         }
     }
 }

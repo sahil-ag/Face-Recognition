@@ -32,6 +32,8 @@ namespace Hack_in_the_north_hand_mouse
         private int minNeighbors = 10;
         SQLiteConnection _sqLiteConnection;
 
+        private bool live;
+
         private FaceRecognizer _faceRecognizer;
         private bool isTrained;
 
@@ -42,6 +44,7 @@ namespace Hack_in_the_north_hand_mouse
             captureInProgress = false;
             haarCascade = new CascadeClassifier(@"haarcascade_frontalface_default.xml"); 
             _sqLiteConnection = new SQLiteConnection(String.Format("Data Source=face.sqlite;Version=3;"));
+            live = false;
             InitializeComponent();
         }
 
@@ -119,7 +122,7 @@ namespace Hack_in_the_north_hand_mouse
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-            if (openFileDialog.ShowDialog() == DialogResult.OK)
+           if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 Image InputImg = Image.FromFile(openFileDialog.FileName);
                 ImageFrame = new Image<Bgr, Byte>(new Bitmap(InputImg));
@@ -128,30 +131,87 @@ namespace Hack_in_the_north_hand_mouse
                     ExtFaces = new List<Bitmap>();
                 else
                     ExtFaces.Clear();
-                DetectFace();
+                DetectFace2();
             }
+            btnNext.Show();
+            btnPrev.Show();
         }
+
 
         private void btnPrev_Click(object sender, EventArgs e)
         {
+            
             if (faceNo > 0)
             {
                 faceNo--;
+               // MessageBox.Show("faceno prev : " + faceNo);
                 pbExtractedFaces.Image = new Image<Gray, Byte>(ExtFaces.ElementAt(faceNo));
             }
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            //MessageBox.Show("faceno prev : " + faceNo);
             if (faceNo < ExtFaces.Count - 1)
             {
                 faceNo++;
+               // MessageBox.Show("facenext : " + faceNo);
                 pbExtractedFaces.Image = new Image<Gray, Byte>(ExtFaces.ElementAt(faceNo));
             }
         }
 
+        private void DetectFace2()
+        {
+            Image<Gray, byte> grayframe = ImageFrame.Convert<Gray, byte>();
+            if (haarCascade == null)
+            {
+                haarCascade = new CascadeClassifier(@"haarcascade_frontalface_default.xml");
+            }
+
+            var faces = haarCascade.DetectMultiScale(grayframe, scaleFactor, minNeighbors);
+            if (faces.Length > 0)
+            {
+                Bitmap BmpInput = grayframe.ToBitmap();
+                Bitmap ExtractedFace;   //empty
+                Graphics FaceCanvas;
+                if (ExtFaces == null)
+                    ExtFaces = new List<Bitmap>();
+                else
+                    ExtFaces.Clear();
+                faceNo = 0;
+
+                //draw a green rectangle on each detected face in image
+                foreach (var face in faces)
+                {
+                    ImageFrame.Draw(face, new Bgr(Color.Green), 3);
+
+                    //set the size of the empty box(ExtractedFace) which will later contain the detected face
+                    ExtractedFace = new Bitmap(face.Width, face.Height);
+
+                    //set empty image as FaceCanvas, for painting
+                    FaceCanvas = Graphics.FromImage(ExtractedFace);
+
+                    FaceCanvas.DrawImage(BmpInput, 0, 0, face, GraphicsUnit.Pixel);
+
+                    ExtFaces.Add(ExtractedFace);
+                    faceNo++;
+                }
+                //MessageBox.Show("faceno : " + faceNo);
+
+                pbExtractedFaces.Image = new Image<Gray, Byte>(ExtFaces.ElementAt(0));
+
+                //Display the detected faces in imagebox
+                CamImageBox.Image = ImageFrame;
+            }
+        }
+
+
+
         private void btnClick_Click(object sender, EventArgs e)
         {
+            live = true;
+            btnPrev.Hide();
+            btnNext.Hide();
             if (isTrained == false)
             {
                 isTrained = TrainRecognizer();
@@ -176,8 +236,7 @@ namespace Hack_in_the_north_hand_mouse
             else
             {
                 btnClick.Text = "Stop Live Detection";
-                Application.Idle += ProcessFrame;
-                
+                Application.Idle += ProcessFrame;               
             }
             captureInProgress = !captureInProgress;
 
@@ -267,7 +326,7 @@ namespace Hack_in_the_north_hand_mouse
             {
                 _sqLiteConnection.Close();
             }
-            return username; ;
+            return username;
         }
 
 
@@ -288,5 +347,6 @@ namespace Hack_in_the_north_hand_mouse
             }
         }
 
+       
     }
 }
