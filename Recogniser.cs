@@ -174,10 +174,7 @@ namespace Hack_in_the_north_hand_mouse
                 Bitmap BmpInput = grayframe.ToBitmap();
                 Bitmap ExtractedFace;   //empty
                 Graphics FaceCanvas;
-                if (ExtFaces == null)
-                    ExtFaces = new List<Bitmap>();
-                else
-                    ExtFaces.Clear();
+                ExtFaces = new List<Bitmap>();
                 faceNo = 0;
 
                 //draw a green rectangle on each detected face in image
