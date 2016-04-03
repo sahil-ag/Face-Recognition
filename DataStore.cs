@@ -9,12 +9,12 @@ using System.Windows.Forms;
 
 namespace Hack_in_the_north_hand_mouse
 {
-    class DataStoreface
+    class DataStore
     {
         private SQLiteConnection _sqLiteConnection;
 
 
-        public DataStoreface(String databasePath = "face.sqlite")
+        public void DataStoreface(String databasePath = "face.sqlite")
         {
             _sqLiteConnection = new SQLiteConnection(String.Format("Data Source={0};Version=3;", databasePath));
 
@@ -32,11 +32,11 @@ namespace Hack_in_the_north_hand_mouse
                 cmd.Parameters.AddWithValue("userId", exisitingUserId);
                 cmd.Parameters.Add("faceSample", DbType.Binary, faceBlob.Length).Value = faceBlob;
                 var result = cmd.ExecuteNonQuery();
-                MessageBox.Show (String.Format("{0} face(s) saved successfully", result));
+                MessageBox.Show(String.Format("{0} face(s) saved successfully", result));
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString()+"So FUCK!");
+                MessageBox.Show(ex.ToString() + "So FUCK!");
             }
             finally
             {
@@ -118,16 +118,14 @@ namespace Hack_in_the_north_hand_mouse
             try
             {
                 _sqLiteConnection.Open();
-                var selectQuery = "SELECT username FROM faces WHERE userId=@userId LIMIT 1";
+                var selectQuery = "SELECT name FROM c_people_data WHERE userID=@userId LIMIT 1";
                 var cmd = new SQLiteCommand(selectQuery, _sqLiteConnection);
                 cmd.Parameters.AddWithValue("userId", userId);
                 var result = cmd.ExecuteReader();
                 if (!result.HasRows) return username;
-                while (result.Read())
-                {
-                    username = (String)result["username"];
-
-                }
+                result.Read();
+                username = (String)result["name"];
+                
             }
             catch
             {

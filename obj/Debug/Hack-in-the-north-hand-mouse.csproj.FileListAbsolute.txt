@@ -6,8 +6,6 @@ c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-m
 c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\bin\Debug\ZedGraph.dll
 c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\bin\Debug\Emgu.CV.UI.xml
 c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\bin\Debug\Emgu.CV.World.xml
-c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack-in-the-north-hand-mouse.csprojResolveAssemblyReference.cache
-c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.CameraCapture.resources
 c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.Properties.Resources.resources
 c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack-in-the-north-hand-mouse.csproj.GenerateResource.Cache
 c:\users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack-in-the-north-hand-mouse.exe
@@ -23,3 +21,7 @@ C:\Users\sahil-pc\Documents\Visual Studio 2015\Projects\Hack-in-the-north-hand-m
 C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.Recogniser.resources
 C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.DashBoard.resources
 C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.LoginForm.resources
+C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.Detector.resources
+C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.guardControl.resources
+C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack-in-the-north-hand-mouse.csprojResolveAssemblyReference.cache
+C:\Users\sahil-pc\documents\visual studio 2015\Projects\Hack-in-the-north-hand-mouse\Hack-in-the-north-hand-mouse\obj\Debug\Hack_in_the_north_hand_mouse.Reco.resources
